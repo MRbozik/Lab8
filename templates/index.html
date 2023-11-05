@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛАБ 8</title>
+</head>
+<body>
+    <h1>ЛАБ 8</h1>
+    <h1 style="font-style: italic; color: blue;">Врубевський Олексій Сергійович, КН-20002б</h1>
+
+    <!-- Таблиця для клієнтів -->
+    <h2>Таблиця "Clients"</h2>
+    <table border="1">
+        <tr>
+            <th><strong>ClientCode</strong></th>
+            <th><strong>CompanyName</strong></th>
+            <th><strong>BankAccount</strong></th>
+            <th><strong>Phone</strong></th>
+            <th><strong>ContactPerson</strong></th>
+            <th><strong>Address</strong></th>
+        </tr>
+        <!-- Виведення даних про клієнтів з бази даних -->
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.ClientCode }}</td>
+            <td>{{ client.CompanyName }}</td>
+            <td>{{ client.BankAccount }}</td>
+            <td>{{ client.Phone }}</td>
+            <td>{{ client.ContactPerson }}</td>
+            <td>{{ client.Address }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Таблиця для автомобілів -->
+    <h2>Таблиця "Cars"</h2>
+    <table border="1">
+        <tr>
+            <th><strong>CarID</strong></th>
+            <th><strong>CarBrand</strong></th>
+            <th><strong>NewCarPrice</strong></th>
+            <th><strong>ClientCode</strong></th>
+        </tr>
+        <!-- Виведення даних про автомобілі з бази даних -->
+        {% for car in cars %}
+        <tr>
+            <td>{{ car.CarID }}</td>
+            <td>{{ car.CarBrand }}</td>
+            <td>{{ car.NewCarPrice }}</td>
+            <td>{{ car.ClientCode.CompanyName }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Таблиця для ремонтів -->
+    <h2>Таблиця "Repairs"</h2>
+    <table border="1">
+        <tr>
+            <th><strong>RepairCode</strong></th>
+            <th><strong>RepairStartDate</strong></th>
+            <th><strong>CarCode</strong></th>
+            <th><strong>RepairType</strong></th>
+            <th><strong>HourlyRepairCost</strong></th>
+            <th><strong>Discount</strong></th>
+            <th><strong>HoursRequired</strong></th>
+        </tr>
+        <!-- Виведення даних про ремонти з бази даних -->
+        {% for repair in repairs %}
+        <tr>
+            <td>{{ repair.RepairCode }}</td>
+            <td>{{ repair.RepairStartDate }}</td>
+            <td>{{ repair.CarCode.CarBrand }}</td>
+            <td>{{ repair.RepairType }}</td>
+            <td>{{ repair.HourlyRepairCost }}</td>
+            <td>{{ repair.Discount }}</td>
+            <td>{{ repair.HoursRequired }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
